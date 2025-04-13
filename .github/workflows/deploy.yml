@@ -1,27 +1,37 @@
-name: React CI/CD # 워크플로우의 이름
+name: Build and Deploy React App
 
 on:
   push:
-    branches: [main] # main 브랜치에 푸시(push)되면 워크플로우 실행
+    branches:
+      - main
 
 jobs:
-  build-and-deply: # 작업 이름 (내가 붙이는 이름)
-    runs-on: ubuntu-latest # 어떤 OS에서 실행할지 (여기선 리눅스)
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    steps: # 실행할 작업 순서 리스트
-      - name: Node.js 설치
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: "18" # Node 버젼 설정
+          node-version: "16"
 
-      - name: 패키지 설치
-        run: npm install # npm 명령어로 의존성 설치
+      - name: Install dependencies
+        run: npm install
 
-      - name: 빌드
-        run: npm run build # React 빌드 명령어
+      - name: Build the app
+        run: npm run build
 
-      - name: GitHub Pages에 배포
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN}} # 인증 토큰 (자동 제공됨)
-          publish_dir: ./build # 배포할 폴더 지정 (빌드 결과물)
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
