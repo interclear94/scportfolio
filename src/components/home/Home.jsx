@@ -6,6 +6,8 @@ import { useRef, useEffect, useState } from "react";
 
 import H2Title from "./H2Title";
 
+import homeProfile from "../../assets/home-remove.png";
+
 const Home = () => {
   const [text, setText] = useState("");
 
@@ -37,7 +39,7 @@ const Home = () => {
           >
             <img
               className="absolute left-[50%] top-[50%] translate-[-50%] opacity-[0.4]"
-              src="./src/assets/home-remove.png"
+              src={homeProfile}
               alt="로고 이미지
           "
             />
@@ -45,7 +47,7 @@ const Home = () => {
 
           <H2Title>
             {text}
-            <span className=" blinking-cursor relative bottom-[5px]">|</span>
+            <span className="blinking-cursor relative bottom-[5px]">|</span>
           </H2Title>
         </div>
       </div>
