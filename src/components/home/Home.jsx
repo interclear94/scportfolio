@@ -11,7 +11,7 @@ import homeProfile from "../../assets/home-remove.png";
 const Home = () => {
   const [text, setText] = useState("");
 
-  const targetText = "Front'And'를 꿈꾸는 사람";
+  const targetText = "End가 아닌 And에 가치를 두다. Front'And'를 꿈꾸는 사람";
 
   const indexRef = useRef(0);
 
@@ -30,7 +30,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="w-[100%] h-[700px] bg-black flex justify-center items-center text-[#dedede] text-[3rem]">
+    <div className="w-[100%] h-[700px] bg-black flex justify-center items-center text-[#dedede] text-[2.5rem]">
       <div>
         <div>
           <div
@@ -44,8 +44,7 @@ const Home = () => {
           "
             />
           </div>
-
-          <H2Title>
+          <H2Title style="text-center absolute left-[50%] top-[50%] translate-[-50%] w-[700px]">
             {text}
             <span className="blinking-cursor relative bottom-[5px]">|</span>
           </H2Title>
