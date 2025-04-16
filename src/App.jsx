@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
 import Skills from "./components/skills/Skills";
+import Project from "./components/project/Project";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <Home />
       <Skills />
+      <Project />
       <Footer />
     </>
   );

@@ -22,7 +22,7 @@ const SkillObj = {
     [
       <p>함수형 컴포넌트를 사용하였으며 useEffect로 리액트 생명주기의 이해</p>,
       <p>React-Query의 infiniteQuery 사용으로 비동기 데이터 호출</p>,
-      <p>레이아웃 컴포넌트와 라우팅처리를 효율적으로 구현 가능</p>,
+      // <p>레이아웃 컴포넌트와 라우팅처리를 효율적으로 구현 가능</p>,
     ],
   ],
   NextJS: [
@@ -32,9 +32,9 @@ const SkillObj = {
 };
 const Skills = () => {
   return (
-    <div className="bg-[#ccc] py-[3.5rem]">
-      <h2 className="text-[#fff] text-[2.5rem] font-light text-center pb-[3rem]">
-        <span className="text-[#37C6C9]">MY</span> SKILLS
+    <div className="bg-[#efefef] py-[3.5rem]">
+      <h2 className="text-[#090707] text-[2.5rem] font-semibold text-center pb-[3rem]">
+        <span className="text-[#37C6C9]">My</span> Skills
       </h2>
       <div className="w-[1000px] mx-auto">
         <ul className="grid grid-cols-3 grid-rows-2 gap-6">
@@ -42,21 +42,28 @@ const Skills = () => {
             ([skillName, [imgSrc, descriptions]]) => (
               <li
                 key={skillName}
-                className="flex flex-col gap-y-[1rem] items-center justify-center bg-white rounded-xl p-5 shadow"
+                className="flex flex-col items-center gap-y-[2rem]"
               >
-                <img
-                  src={imgSrc}
-                  alt={`${skillName} logo`}
-                  className="w-[80px]"
-                />
-                <h3 className="text-xl font-semibold text-[#37C6C9] mb-2">
-                  {skillName}
-                </h3>
-                <ul className="list-disc pl-5 text-sm text-gray-800">
-                  {descriptions.map((desc, idx) => (
-                    <li key={idx}>{desc}</li>
-                  ))}
-                </ul>
+                <div className="w-[50px] h-[50px] rounded-[50%] overflow-hidden relative">
+                  <img
+                    src={imgSrc}
+                    alt={`${skillName} logo`}
+                    className="w-[90%] absolute left-[50%] top-[50%] translate-[-50%]"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-y-[1rem] items-center justify-center bg-white rounded-xl p-5 shadow">
+                  <h3 className="text-xl font-normal text-[#0B042E] mb-2">
+                    {skillName}
+                  </h3>
+                  <ul className="list-disc pl-5 text-sm text-gray-800">
+                    {descriptions.map((desc, idx) => (
+                      <li key={idx} className="text-[#767676]">
+                        {desc}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </li>
             )
           )}
