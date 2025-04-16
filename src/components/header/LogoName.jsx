@@ -2,8 +2,9 @@ import React from "react";
 
 const LogoName = () => {
   return (
-    <h1 className="text-[#fff] text-[1.75rem] font-bold">
-      <span className="text-[#37C6C9]">SC's</span> Portfolio
+    <h1 className="text-[#fff] text-[2rem] font-bold cursor-pointer">
+      <span className="text-[#37C6C9]">SC's</span>{" "}
+      <span className="font-light">Portfolio</span>
     </h1>
   );
 };
