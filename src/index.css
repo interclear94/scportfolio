@@ -1,20 +1,7 @@
 @import "tailwindcss";
-/* 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@theme {
+  --breakpoint-xm: 320px;
 }
-
-ul,
-ol,
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-} */
 
 .blinking-cursor {
   animation: blink 0.5s steps(1, start) infinite;
